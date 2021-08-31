@@ -1,0 +1,8 @@
+cat SRR_Acc_List.txt | while read i
+do 
+time fastq-dump --gzip --split-files -A $i ${i}.sra && echo "** ${i}.sra to fastq done **"
+done
+#--gzip:将生成的结果文件压缩
+#--split-files:替代--split-3,#生成3个文件，第一个最小的文件为I1，第二个为R1，第三个最大文件为R2
+#-A指定输出的文件名
+
